@@ -1,5 +1,3 @@
-# Gatwaza.github.io
-
 # ![Unesis AI Logo](path/to/unesis_logo.png) Unesis AI
 
 **Empowering Healthcare for Refugee and Displaced Communities**
