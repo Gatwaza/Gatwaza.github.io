@@ -104,6 +104,24 @@ export default function App() {
         </div>
       </section>
 
+      <MLObject img="/ml-obj-contact.jpg" delay={0.2} />
+
+      <section className="section container contact-section">
+        <FadeIn>
+          <h2>Get in Touch</h2>
+          <form 
+            action={process.env.REACT_APP_FORM_ENDPOINT}
+            method="POST"
+            className="contact-form"
+          >
+            <input type="text" name="name" placeholder="Your name" required />
+            <input type="email" name="email" placeholder="Your email" required />
+            <textarea name="message" placeholder="Your message" rows="5" required />
+            <button type="submit">Send Message</button>
+          </form>
+        </FadeIn>
+      </section>
+
       <footer className="footer">
         OMW! to the next big thing. Let's connect!
       </footer>
