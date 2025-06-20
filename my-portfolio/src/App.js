@@ -42,7 +42,7 @@ export default function App() {
     <div className="app">
       <header className="header">
         <video className="hero-video" autoPlay muted loop playsInline>
-          <source src="/background.mp4" type="video/mp4" />
+          <source src="/IMG_0947.mov" type="video/mp4" />
         </video>
         <div className="hero-content">
           <h1>Jean Robert Gatwaza</h1>
