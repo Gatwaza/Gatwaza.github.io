@@ -1,9 +1,9 @@
 :root {
   --gold: #d4af37;
-  --black: #0e0e0e;
+  --black: #0d0d0d;
   --white: #f5f5f5;
   --gray: #aaa;
-  --card-bg: #1c1c1c;
+  --card-bg: #1b1b1b;
 }
 
 body {
@@ -14,102 +14,109 @@ body {
   scroll-behavior: smooth;
 }
 
-a {
-  color: var(--gold);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 .app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: var(--black);
-  color: var(--white);
 }
 
+/* ---------- HERO VIDEO SECTION ---------- */
 .header {
+  position: relative;
+  height: 60vh;
+  overflow: hidden;
   text-align: center;
-  padding: 4rem 2rem;
-  background-color: var(--black);
-  border-bottom: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.4);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 1rem;
 }
 
 .header h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: var(--gold);
   margin-bottom: 0.5rem;
 }
 
 .tagline {
   font-size: 1.25rem;
-  font-weight: 500;
-  color: var(--white);
   background: linear-gradient(90deg, var(--gold), var(--white));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-top: 0.5rem;
+  font-weight: 500;
 }
 
+/* ---------- SECTION STYLING ---------- */
 .container {
   max-width: 1100px;
-  padding: 2rem;
   margin: 0 auto;
-}
-
-.section {
-  margin-bottom: 4rem;
+  padding: 4rem 1rem;
 }
 
 .section h2 {
   font-size: 2rem;
-  margin-bottom: 1rem;
-  color: var(--gold);
   border-left: 4px solid var(--gold);
-  padding-left: 0.75rem;
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+  color: var(--gold);
 }
 
+/* ---------- TIMELINE ---------- */
 .timeline-item {
   margin-bottom: 1.5rem;
-  border-left: 2px solid var(--gold);
   padding-left: 1rem;
+  border-left: 3px solid var(--gold);
 }
 
-.timeline-item h3 {
-  font-size: 1.2rem;
-  color: var(--white);
+.timeline-item .year {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
 }
 
-.timeline-item p {
-  color: var(--gray);
-  margin: 0.2rem 0 1rem;
-}
-
+/* ---------- CARD GRID ---------- */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 2rem;
+  gap: 1.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card-grid.small {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .card {
   background: var(--card-bg);
-  border: 1px solid #2b2b2b;
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
+  border: 1px solid #2b2b2b;
   transition: transform 0.3s ease;
 }
 
 .card:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 .card img {
   width: 100%;
+  height: 180px;
+  object-fit: cover;
   filter: grayscale(100%);
-  transition: filter 0.5s ease;
+  transition: filter 0.4s ease;
 }
 
 .card:hover img {
@@ -122,7 +129,7 @@ a:hover {
 
 .card-content h3 {
   color: var(--gold);
-  margin: 0 0 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .card-content p {
@@ -130,32 +137,60 @@ a:hover {
   font-size: 0.95rem;
 }
 
+/* ---------- SKILLS & BADGES ---------- */
 .skill-section {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 0.75rem;
   margin-top: 1rem;
 }
 
 .skill-badge {
-  background-color: #2b2b2b;
+  background-color: var(--card-bg);
+  border: 1px solid var(--gold);
   color: var(--gold);
   padding: 8px 14px;
   border-radius: 20px;
-  font-size: 0.85rem;
-  border: 1px solid var(--gold);
-  transition: background 0.3s ease;
+  font-size: 0.9rem;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .skill-badge:hover {
-  background-color: var(--gold);
+  background: var(--gold);
   color: var(--black);
 }
 
+/* ---------- ML OBJECTS (TRANSITION DIVIDER) ---------- */
+.ml-object {
+  width: 100px;
+  margin: 3rem auto 1rem;
+  perspective: 300px;
+}
+
+.ml-object img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(0.95);
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  animation: spinY 5s ease-in-out;
+}
+
+@keyframes spinY {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+/* ---------- FOOTER ---------- */
 .footer {
   text-align: center;
-  padding: 2rem;
+  padding: 2rem 1rem;
+  border-top: 1px solid #222;
   font-size: 0.9rem;
   color: var(--gray);
-  border-top: 1px solid #222;
 }
